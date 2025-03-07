@@ -5,36 +5,56 @@
 // Siga os comentários para implementar cada parte do desafio.
 
 int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+   //VETORES E MATRIZES
 
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
-
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
-
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
+    int tab [10][10]= {0};
     
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
+    //imprindo as colunas
+    printf("   A B C D E F G H I J\n");
+    for (int m = 0; m < 10; m++)
+    {
+        //imprimir os números das linhas
+        printf("%2d ", m + 1);// o '2%d' representa o afastamento da linha de letras em relação à coluna de númeração
 
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
+    //ocupação do primeiro navio de forma horinzontal (linha 1 , coluna 4)
+    for (int i = 0; i <3; i++)
+    {
+        tab[1][4+i] = 3;//número de ocupação do navio. 
+    //[1], representa a linha. [4+i], representa a coluna sendo somada até atingir a condição do loop, imprimindo o número 3.
+    }
+
+    //ocupação do navio de forma diagonal
+    for (int i = 0; i <3; i++)
+    {
+        tab[i][i] = 3;//número de ocupação do navio. 
+    //[5], representa a linha. [8+1], representa a coluna sendo somada até atingir a condição do loop, imprimindo o número 3.
+    }
+    
+    for (int i = 4; i <= 6; i++) {  // Linhas 4, 5, 6
+        tab[i][5] = 5;  // Coluna central da cruz
+    }
+    for (int j = 4; j <= 6; j++) {  // Colunas 4, 5, 6
+        tab[5][j] = 5;  // Linha central da cruz
+    }
+    /*for (int i = 6; i <= 8; i++) {//cpntrele das linhas do tabuleiro
+        for (int j = 6 - (i - 6); j <= 8; j++) {//controla as colunas de cada linha
+//Quando i = 6:
+//A expressão 6 - (6 - 6) resulta em 6 - 0 = 6. Então, a coluna j começa de 6 na linha 6, preenchendo até a coluna 8, e assim sucessivamente
+            if (tab[i][j] == 0) { // garante que a célulaa ser ocupada esteja vazia
+                tab[i][j] = 2; // preenche 
+            }
+        }
+    }*/
+
+    // impressão dos tabuleiros
+    for (int j = 0; j < 10; j++) {
+        printf("%d ", tab[m][j]);  // exibe cada posição do tabuleiro de acordo com os loops acima
+    }
+    printf("\n");  //quebra de linha para separar as linhas do tabuleiro
+    
+    }
+   
+
 
     return 0;
 }
